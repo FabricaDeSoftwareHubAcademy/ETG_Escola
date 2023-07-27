@@ -53,7 +53,7 @@ class Usuario{
 
         $obBanco = new Banco("recado");
         
-        $dados = $obBanco->select();
+        $dados = $obBanco->select(NULL,"id_recado DESC");
         if($dados->rowCount() > 0){
 
             return $dados;

@@ -50,6 +50,7 @@ $user = new Usuario('2','joao@gmail.com','123');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mural de Recados</title>
     <link rel="stylesheet" href="../assets/css/mural.css"> 
+    
 </head>
 <body class="body_mural">
 
@@ -64,6 +65,13 @@ $user = new Usuario('2','joao@gmail.com','123');
         <a href="add_aviso.php"><img class="img_btn_add" src="../assets/imgs/icons/btn_add.png" alt=""></a>
 
     </div>
+</div>
+<div class="centralizar_btn">
+
+    <div class="botao-padrao-inicio">
+        <a href="#"><input type="reset" class="botao-inicio-submit"  value="INÍCIO"></a>
+    </div>
+
 </div>
 
 </body>

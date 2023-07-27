@@ -99,7 +99,7 @@ class Banco{
         concatenando os parametros por ALGO ou por ''
         */
         $query = 'SELECT '.$campos.' FROM '.$this->table.''.$where.''.$order.''.$limit.'';
-
+       
         
         //preciso usar o fetch all aqui, ainda nao terminei!
         return $this ->  executarQuery($query);
