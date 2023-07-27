@@ -30,7 +30,7 @@ if(isset($_POST['btn_sub'])){
         if($objUser->logar()){
 
             $_SESSION['msg'] = 'logado com sucesso!';
-            header("Location: pages/listar_perfil.php");
+            header("Location: pages/mural.php");
 
         }else{
 

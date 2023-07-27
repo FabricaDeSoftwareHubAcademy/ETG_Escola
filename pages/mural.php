@@ -69,7 +69,7 @@ $user = new Usuario('2','joao@gmail.com','123');
 <div class="centralizar_btn">
 
     <div class="botao-padrao-inicio">
-        <a href="#"><input type="reset" class="botao-inicio-submit"  value="INÍCIO"></a>
+        <a href="editar_salas.php"><input type="reset" class="botao-inicio-submit"  value="SALAS"></a>
     </div>
 
 </div>
