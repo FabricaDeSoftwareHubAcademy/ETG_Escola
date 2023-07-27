@@ -71,7 +71,7 @@ $user = new Usuario('2','joao@gmail.com','123');
     <div class="botao-padrao-inicio">
         <a href="editar_salas.php"><input type="reset" class="botao-inicio-submit"  value="SALAS"></a>
     </div>
-
+ 
 </div>
 
 </body>
