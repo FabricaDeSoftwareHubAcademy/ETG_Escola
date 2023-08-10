@@ -155,7 +155,7 @@
   .input_field:placeholder-shown ~ .input_label {
     font-size: 17px;
     cursor: text;
-    top: 37px;
+    top: 30px;
     left: 10px;
   }
   
@@ -310,4 +310,3 @@ textarea {
   margin-bottom: 10px;
   padding-left: 10px;
 }
-/*.*/
