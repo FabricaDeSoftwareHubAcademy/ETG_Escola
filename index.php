@@ -4,7 +4,7 @@ session_start();
  
 
 // require na class Usuario 
-// include_once("./app/entity/Usuario.php");
+// include_once("../app/entity/Usuario.php");
 
 require __DIR__.'/vendor/autoload.php';
 use App\Entity\Usuario;

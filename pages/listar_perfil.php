@@ -1,4 +1,10 @@
 <?php
+namespace app\entity;
+use App\Db\Banco;
+use PDO;
+use PDOException;
+
+
 session_start();
 if(!isset($_SESSION['num_matricula_logado'])){
     // se a sessio nao estiver setado redireciona para a index 

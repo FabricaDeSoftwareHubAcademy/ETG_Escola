@@ -1,5 +1,9 @@
 <?php
-require_once("../db/Banco.php");
+
+namespace app\entity;
+use App\Db\Banco;
+use PDO;
+use PDOException;
 
 class Usuario{
 
