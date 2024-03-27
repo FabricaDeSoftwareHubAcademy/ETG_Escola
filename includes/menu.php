@@ -193,7 +193,7 @@ $ifrel = $perfil['relatorios'] == '1';
                 
 
                 <li class="li-menu">                    
-                    <a href="#" class="link-menu">
+                    <a href="../pages/sobre.php" class="link-menu">
                         <i id="icon-notificacao" class="bi bi-info-circle"  style="--i:3"></i>  
                         <h5 class="titulo-info" id="titulo-noti" style="--i:3">Sobre nós</h5>              
                     </a>

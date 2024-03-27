@@ -14,8 +14,6 @@ for (let i = 0; i < perguntasJson.length; i++) {
     }
 
 }
- 
-// console.log(preenchidas)
 var NaoConformidades = [];
 const DOM = new Dom(NaoConformidades, preenchidas);
 
