@@ -19,4 +19,10 @@ class Relatorio
         $dados = $banco -> select() -> fetchAll();
         return $dados;
     }
+
+    public static function getTudo(){
+        $banco = new Banco("salas_encerradas_docente");
+        $dados = $banco -> select() -> fetchAll();
+        return $dados;
+    }
 }

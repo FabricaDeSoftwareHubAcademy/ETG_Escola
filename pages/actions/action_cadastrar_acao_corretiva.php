@@ -85,7 +85,7 @@ foreach ($data[0] as $AcaoCorretiva) {
         
         $dados = [
             "id_realiza" => $nao_conformidade_sem_id["id_realizacao"],
-            "id_logistica" => $_SESSION["id_user"],
+            "id_user" => $_SESSION["id_user"],
             "id_pergu" => $nao_conformidade_sem_id["id_pergunta"],
             "descricao_NC" => $nao_conformidade_sem_id["textAreaContent"],
             "img1" => $img_1,

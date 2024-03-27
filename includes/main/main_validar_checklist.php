@@ -28,9 +28,8 @@
                 
             </div>
 
-                      <!-- PARTE DOS BOTÕES -->
             <div class="alinar-botoes">
-            <!--Botão voltar-->
+
                 <div class="botao-padrao-voltar">
                     <a href="listar_checklist_concluidas.php" class="botao-voltar-link" id="buttonBackModalNaoConf">Voltar</a>
                 </div>

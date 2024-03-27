@@ -52,3 +52,10 @@ function validarCampos(nome_pergunta, perguntas) {
 
     return true;
 }
+
+function voltarPagina() {
+    window.history.back();
+}
+function atualizarPagina() {
+    location.reload();
+}

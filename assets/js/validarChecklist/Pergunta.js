@@ -5,6 +5,7 @@ export class Pergunta {
     }
 
     getAll() {
+        console.log(this.dataPergunta)
         return this.dataPergunta;
     }
 

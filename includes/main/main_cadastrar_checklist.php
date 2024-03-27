@@ -157,7 +157,7 @@
                 <div class="botoes-cadastro-checklist">
                     <!--Botão Voltar-->
                     <div class="botao-padrao-voltar">
-                        <a href="editar_sala.php"><input type="submit" class="botao-voltar-submit" value="VOLTAR"></a>
+                        <a onclick="voltarPagina()"><input type="submit" class="botao-voltar-submit" value="VOLTAR"></a>
                     </div>
 
                     <!--Botão Cadastrar-->
@@ -257,7 +257,9 @@
             if (response.status == "OK") {
                 modalStatus('Pergunta cadastrada com sucesso!', 'success');
                 closePopup1()
-                listarPerguntas()
+                listarPerguntas()   
+                atualizarPagina() 
+
             } else {
                 modalStatus('Preencha todos os campos!', 'error')
             }
