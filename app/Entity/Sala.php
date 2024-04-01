@@ -67,7 +67,7 @@ class Sala
                 'status'=> $status
             ];
     
-            $objSala -> update('id = "'.$id_sala.'"', $dados);
+            $objSala -> update('id = "'.$id_sala.'"  ', $dados);
 
             return true;
         }catch(PDOException $e){ 
@@ -75,6 +75,8 @@ class Sala
         } 
 
     }
+
+    
 
     
 
