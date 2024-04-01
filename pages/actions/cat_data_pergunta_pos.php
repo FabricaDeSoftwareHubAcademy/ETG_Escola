@@ -15,7 +15,10 @@ use App\Entity\Sala;
 
 
 $status = false;
-
+ // Liberando a sala 
+//  Sala::setStatusSala( $_GET['id_sala'] , 'L' );
+ 
+  
 try {
 
     $dados = json_decode(file_get_contents('php://input'), true);
@@ -25,18 +28,19 @@ try {
     
     $data_last_insert = Checklist::getLastCheck($id_sala)[0] ;
 
-    // Bloqueando a sala 
-    Sala::setStatusSala( $id_sala , 'B' );
+    
+     
     
     $response=ResponderChecklist::cadastrarPos($data_last_insert['id'], $dados);
 
-    $status = $response ;
-      
+    $status = $response ; 
  } catch (Exception $e) {
 
     $status = $e->getMessage();
 
 }
+// Liberando a sala 
+Sala::setStatusSala( $_GET['id_sala'] , 'L' );
 
 echo(json_encode([
     'status' => $status

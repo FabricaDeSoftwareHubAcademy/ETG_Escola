@@ -200,64 +200,68 @@ btn_submit.addEventListener('click', async (e) => {
     e.preventDefault();
     JSON.stringify()
 
-    
+
     if (todasPergResp()) {
-        
+
         modalStatus('Deseja confirmar o Checklist? <br>Essa alteração não poderá ser desfeita!', 'question', (e) => {
             cadastrar_checkl()
         })
-        
+
     }
     else {
         modalStatus('Responda todo o formulário!', 'error')
     }
-    
+
 });
 
-async function cadastrar_checkl(){
+async function cadastrar_checkl() {
 
+    
     const urlParams = new URLSearchParams(window.location.search);
     const id_sala = urlParams.get('id_sala');
-    
+
     if (todasPergResp()) {
         listaData["observacao"] = document.querySelector("#nova_observacao").value
         let data_php = await fetch('./actions/cat_data_pergunta_pos.php?id_sala=' + id_sala + '&id_checklist=' + id_checklist, {
-        method: 'POST',
-        body: JSON.stringify(listaData)
-    });
+            method: 'POST',
+            body: JSON.stringify(listaData)
+        });
 
-    let res = await data_php.json()
-    if (res.status) {
+        let res = await data_php.json()
+        console.log(res)
+        if (res.status) {
 
-        var novoBotao = btn_submit.cloneNode(true);
-        btn_submit.parentNode.replaceChild(novoBotao, btn_submit);
+            var novoBotao = btn_submit.cloneNode(true);
+            btn_submit.parentNode.replaceChild(novoBotao, btn_submit);
 
-        modalStatus('Checklist efetuado com Sucesso!', 'success', () => {
-            location.href = 'listar_salas.php'
-    })
-
-
-         
-
-    }else {
-
-        modalStatus('Aconteceu, tente novamente mais tarde', 'error', () => {
-            location.href = 'visualizar_sala.php?id_sala=' + id_sala
-
-    });
-
-}}}
-    // let response = await data_php.json();
+            modalStatus('Checklist efetuado com Sucesso!', 'success', () => {
+                location.href = 'listar_salas.php'
+            })
 
 
 
-    // if(response){
-    //     modalStatus("Cadastrado com sucesso!","success",() => {
-    //         location.href="listar_salas.php"
 
-    //     });
-    // }
+        } else {
 
-  
-       
-    
+            modalStatus('Aconteceu, tente novamente mais tarde', 'error', () => {
+                location.href = 'visualizar_sala.php?id_sala=' + id_sala
+
+            })
+        }
+
+    }
+}
+// let response = await data_php.json();
+
+
+
+// if(response){
+//     modalStatus("Cadastrado com sucesso!","success",() => {
+//         location.href="listar_salas.php"
+
+//     });
+// }
+
+
+
+
