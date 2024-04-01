@@ -10,7 +10,7 @@
     <main class="tudo_esqueceu_senha1">
         <form method="POST" id="form_cad" class="slaaaaa">
             <section class='titulo_cadastro_usuario'>
-                <h1 class="title_cadastrar_usuario_page">Cadastrar Usuário.</h1>
+                <h1 class="title_cadastrar_usuario_page">Cadastrar Usuário</h1>
             </section>
             
             <section class="centralizar_input_cadastrar_usuario">                
@@ -41,7 +41,7 @@
 
                     <div class="input_group_M field">
                         <input type="input" class="input_field_M" name="num_matricula" id="matricula" placeholder="Name" required="">
-                        <label for="name" class="input_label_M">N° de Matricula</label> 
+                        <label for="name" class="input_label_M">N° de Matrícula</label> 
                     </div> 
                         
                         
