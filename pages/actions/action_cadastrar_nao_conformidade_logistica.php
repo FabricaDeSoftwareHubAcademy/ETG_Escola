@@ -56,7 +56,7 @@ if (count($dadosNC) > 0) {
         
     
         NaoConformidade::cadastrar($dados_nao_conformidade);
-        Sala::setStatusSala($_GET['id_sala']    , "L");
+        
         ResponderChecklist::setConfLogis($id_realiza, "p");
     
         }
@@ -83,5 +83,7 @@ if ($email == "true") {
     }
 
 }
+
+Sala::setStatusSala($_GET['id_sala']    , "L");
 
 echo(json_encode($dadosNC));
