@@ -29,7 +29,7 @@ $dadosDocente = Usuario::getDadosById($_GET['id_docente'])[0];
 $dadosLogistica = Usuario::getDadosById($_SESSION['id_user'])[0];
 $dadosSala = Sala::getDadosById($_GET['id_sala'])[0];
 Sala::setStatusSala($_GET['id_sala'], "L");
-ResponderChecklist::setConfLogis($id_realiza, "v");
+ResponderChecklist::setConfLogis($id_realiza, "s");
 $id_realiza = $_GET["id_realizacao"];
 $email = $_GET["email"];
 $dadosNC = json_decode(file_get_contents('php://input'), true); 
