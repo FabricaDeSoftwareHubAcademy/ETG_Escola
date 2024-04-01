@@ -21,6 +21,7 @@
     max-width: 830px;
     margin: auto;
 }
+
 .titulo{
     width: 100%;
     text-align: center;
@@ -175,6 +176,7 @@
         border-radius: 10px;
         padding: 5px;
     }
+    
     
 }
 

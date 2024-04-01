@@ -33,7 +33,7 @@
                         <input type="checkbox" class="checkbox_permissoes" name="mais_usados_administrador"  id="mais_usados_administrador" autocomplete="off"/>
                     </div>
                     <div class="permissoes_salas_itens">
-                        <label class="label_permissao">Logistica</label>
+                        <label class="label_permissao">Logística</label>
                         <input type="checkbox" class="checkbox_permissoes" name="mais_usados_logistica" id="mais_usados_logistica" autocomplete="off"/>
                     </div>
                     <div class="permissoes_salas_itens">
@@ -61,7 +61,7 @@
                         <input type="checkbox" class="checkbox_permissoes" name="gerenciar_recados" id="gerenciar_recados" autocomplete="off"/>
                     </div>
                     <div class="permissoes_salas_itens">
-                        <label class="label_permissao">Gerenciar Notificacoes</label>
+                        <label class="label_permissao">Gerenciar Notificações</label>
                         <input type="checkbox" class="checkbox_permissoes" name="gerenciar_notificacoes"  id="gerenciar_notificacoes" autocomplete="off"/>
                     </div>
                     <div class="permissoes_salas_itens">
@@ -82,11 +82,11 @@
                         <input type="checkbox" class="checkbox_permissoes" name="realizar_checklist"  id="realizar_checklist" autocomplete="off"/>
                     </div>
                     <div class="permissoes_salas_itens">
-                        <label class="label_permissao">Nao conformidade e Acao corretiva</label>
+                        <label class="label_permissao">Não conformidade e Ação Corretiva</label>
                         <input type="checkbox" class="checkbox_permissoes" name="realizar_nao_conformidade" id="realizar_nao_conformidade" autocomplete="off"/>
                     </div>
                     <div class="permissoes_salas_itens">
-                        <label class="label_permissao">ver relatórios</label>
+                        <label class="label_permissao">Ver Relatórios</label>
                         <input type="checkbox" class="checkbox_permissoes" name="ver_relatorios" id="ver_relatorios" autocomplete="off"/>
                     </div>
                 </div>
