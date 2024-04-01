@@ -12,6 +12,8 @@
   }
 .todas_nao_conf{
     padding-left: 2%;
+    margin: 0 auto;
+    max-width: 832px;
     width: 100%;
 }
 .tela_detalhes{
@@ -182,6 +184,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    
 }
 /* .botao-padrao-voltar{
     width: 100%;
