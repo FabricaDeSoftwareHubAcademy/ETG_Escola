@@ -104,9 +104,15 @@ if($ifgensala){
 }
 else
 {
+    
     foreach($dados as $sala){
+        $link_view_sala = '';
         
-        
+        if($sala['responsavel'] == $_SESSION['id_user']){
+
+            $link_view_sala = 'href="visualizar_sala.php?id_sala='.$sala['id'].'"';
+
+        }    
         $img_sala = '';
         if($sala['img_sala'] == ''){
 
@@ -119,7 +125,7 @@ else
         }
          
         $style='';
-        $link_view_sala = '';
+        
         $status = [
             'D' => 'Desativada',
             'L' => 'Livre',
