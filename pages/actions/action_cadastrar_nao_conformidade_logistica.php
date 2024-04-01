@@ -28,6 +28,7 @@ $obMailer = new Mailer();
 $dadosDocente = Usuario::getDadosById($_GET['id_docente'])[0];
 $dadosLogistica = Usuario::getDadosById($_SESSION['id_user'])[0];
 $dadosSala = Sala::getDadosById($_GET['id_sala'])[0];
+Sala::setStatusSala($_GET['id_sala'], "L");
 $id_realiza = $_GET["id_realizacao"];
 $email = $_GET["email"];
 $dadosNC = json_decode(file_get_contents('php://input'), true); 
@@ -84,6 +85,6 @@ if ($email == "true") {
 
 }
 
-Sala::setStatusSala($_GET['id_sala']    , "L");
+
 
 echo(json_encode($dadosNC));
