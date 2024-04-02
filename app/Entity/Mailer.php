@@ -60,7 +60,7 @@ class Mailer
         $email->Port ="587";
         $email->Username = "fabrica.hub.academy@gmail.com";
         $email->Password = "ciaiabsuzjimabht";
-
+        $email->CharSet = 'UTF-8';
         $email->Subject = "=?UTF-8?B?".base64_encode("Notificação enviada por ".$remetente['nome'])."?=";
         $email->setFrom("fabrica.hub.academy@gmail.com","=?UTF-8?B?".base64_encode("Fábrica de Software")."?="); 
 
@@ -102,8 +102,8 @@ class Mailer
 
         $email->Body = $this->createEmbedMail('Não Conformidade', $destinatario['nome'], $content, 'Ver Não Conformidade', '#ff5050',$imgs, textNConformidade: $textNConformidade);
         $email->addAddress($emailparam); 
-        $email->addAddress('logisticatur@ms.senac.br '); 
-        $email->addAddress('simone.demenciano@ms.senac.br');
+        // $email->addAddress('logisticatur@ms.senac.br '); 
+        // $email->addAddress('simone.demenciano@ms.senac.br');
         $email->isHTML(true);
 
         foreach($imgs as $img){

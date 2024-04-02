@@ -1,9 +1,7 @@
 <?php
 namespace App\Entity;
-use PDO;
 use PDOException;
 use App\Db\Banco;
-use App\Entity\Funcoes;
 use Exception;
 
 class AcaoCorretiva 

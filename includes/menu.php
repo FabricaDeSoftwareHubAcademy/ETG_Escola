@@ -79,7 +79,7 @@ $ifrel = $perfil['relatorios'] == '1';
         })
 
         var inputs = document.querySelectorAll('input');
-        var inputs_perm = ['text','email','password']
+        var inputs_perm = ['text','email','password','number']
         inputs.forEach((input) => {
             
             if(inputs_perm.includes(input.type)){
@@ -365,10 +365,10 @@ $ifrel = $perfil['relatorios'] == '1';
 
 
                 <li class="saida">
-                    <button class="btnOpenmodal-menu" onclick="openModal()">
+                    <button class="btnOpenmodal-menu" >
                         <a href="actions/sair.php" class="link-menu">
                             <i class="bi bi-box-arrow-left" style="--i:7"></i>
-                            <h5 class="titulo-info" onclick="openModal()" id="titulo-sair" style="--i:7">Sair</h5>
+                            <h5 class="titulo-info" id="titulo-sair" style="--i:7">Sair</h5>
                         </a>
                     </button>
                 </li>

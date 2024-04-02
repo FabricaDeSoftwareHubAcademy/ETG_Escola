@@ -2,14 +2,7 @@ import { Dom } from './Dom.js';
 var preenchidas = perguntasJson.length;
 const id_salaa = perguntasJson[0]["id_sala"]
 console.log(perguntasJson)
-// console.log(perguntasJson)
-// var AcoesCorretivas = [];
-// var preenchidas = []
-// for (let i = 0; i < dadosGetStorage.length; i++) {
-//     // console.log(dadosGetStorage[i])
-//     preenchidas[i] = {"id_pergunta": dadosGetStorage[i]["id_pergunta"],
-//     "preenchido": false}
-// }
+ 
 
 const DOM = new Dom(perguntasJson);
 
@@ -42,9 +35,7 @@ async function cadastrar_acao_corretiva() {
     const queryString123 = window.location.search;  
     const params123 = new URLSearchParams(queryString123); 
     const id_realizacao = params123.get('id_realizacao');
-
-    console.log(id_realizacao)
-
+ 
 
     let url = "./actions/action_cadastrar_acao_corretiva.php?id_sala="+id_salaa+"&id_realizacao="+id_realizacao
     let request = await fetch(url, {

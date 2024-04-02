@@ -39,8 +39,8 @@ try {
     $status = $e->getMessage();
 
 }
-// Liberando a sala 
-Sala::setStatusSala( $_GET['id_sala'] , 'L' );
+// Bloqueando a sala 
+Sala::setStatusSala( $_GET['id_sala'] , 'B' );
 
 echo(json_encode([
     'status' => $status

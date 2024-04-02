@@ -28,7 +28,10 @@ $obMailer = new Mailer();
 $dadosDocente = Usuario::getDadosById($_GET['id_docente'])[0];
 $dadosLogistica = Usuario::getDadosById($_SESSION['id_user'])[0];
 $dadosSala = Sala::getDadosById($_GET['id_sala'])[0];
-Sala::setStatusSala($_GET['id_sala'], "L");
+
+Sala::setStatusSala($_GET['id_sala'], 'L');
+ 
+
 $id_realiza = $_GET["id_realizacao"];
 ResponderChecklist::setConfLogis($id_realiza, "s");
 $email = $_GET["email"];
@@ -86,6 +89,6 @@ if ($email == "true") {
 
 }
 
-
+Sala::setStatusSala($_GET['id_sala'], 'L');
 
 echo(json_encode($dadosNC));

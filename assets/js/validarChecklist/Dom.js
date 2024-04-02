@@ -64,6 +64,7 @@ export class Dom {
         var coutador_pre = 0
         for (var pergunta of tipo_preaula) {
             coutador_pre++
+            console.log(pergunta);
             if (pergunta["NaoConformidade"]) {
                 // this.addNaoConfToDataNaoConf(pergunta)  
                 this.criarElementoRespondidoErrado(pergunta["pergunta"], pergunta["id_pergunta"], pergunta) //checando se a pergunta tem uma nao conformidade
@@ -298,6 +299,8 @@ export class Dom {
         var botao_estatico = document.createElement("i")
         botao_estatico.className = "bi bi-check-circle"
         botao_estatico.style.color = "green"
+        botao_estatico.style.position = "relative"
+
         botao_estatico.style.fontSize = "40px"
         botao_estatico.style.marginRight = "20px"
         // botao_incorreto.className = "bi bi-check-circle"

@@ -19,6 +19,7 @@ $dadosSala = Sala::getDadosById($idSala)[0];
  
 
 $perguntas = $objValidarChecklist -> getPerguntas(idSala: $idSala);
+// print_r($perguntas);
 $observacao = ResponderChecklist::getObservacao($idResponderCheck);
 $id_user = ResponderChecklist::getUserRealiza($idResponderCheck);
 // var_dump($observacao);exit;
@@ -28,6 +29,7 @@ foreach ($perguntas as &$row) {
     // var_dump($row);exit;
     $id_sala = $row["id_sala"]; 
     $NaoConformidade = $objValidarChecklist -> hasNaoConf(idPergunta: $row["id_pergunta"], idRealiza: $idResponderCheck);
+    echo($NaoConformidade."<br>");
     $row["observacoes"] = $observacao;
     $row["id_user_realiza"] = $id_user;
     $row["id_realizacao"] = $idResponderCheck;

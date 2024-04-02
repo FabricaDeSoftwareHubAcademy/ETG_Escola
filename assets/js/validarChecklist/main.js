@@ -29,17 +29,18 @@ buttonSubmit.addEventListener("click", async function(event) {
         modalStatusAcaoCorretiva("Responda todas as perguntas", "error")
     }
     else {
-        modalStatusAcaoCorretiva("Deseja enviar o email para a coordenação ?", "question", () => {
+        modalStatusAcaoCorretiva("Deseja enviar o email para a coordenação ?", "question", 
+        () => {
             so_nao_conformidade(true)
             modalStatusAcaoCorretiva("Deseja realizar as ações corretivas agora?", "question", () => {
                 window.location.href = "./acao_corretiva.php?id_realizacao="+id_realizacao
             }, () => {
                 window.location.href = "./listar_checklist_concluidas.php"
             })
-        }, () => {
+        }, 
+        () => {
             so_nao_conformidade(false)
             modalStatusAcaoCorretiva("Deseja realizar as ações corretivas agora?", "question", () => {
-                console.log("DEVERIA ME REDIRECIORNAR")
                 window.location.href = "./acao_corretiva.php?id_realizacao="+id_realizacao
             }, () => {
                 window.location.href = "./listar_checklist_concluidas.php"
@@ -51,7 +52,7 @@ buttonSubmit.addEventListener("click", async function(event) {
 async function so_nao_conformidade(email = false) {
     var id_docente = perguntasJson[0]["id_user_realiza"]
     var id_sala = perguntasJson[0]["id_sala"]
-
+     
     try {
         let url = ""
         if (email) {
