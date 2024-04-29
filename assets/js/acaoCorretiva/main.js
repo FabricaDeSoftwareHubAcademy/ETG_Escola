@@ -17,7 +17,7 @@ document.querySelector(".botao-cadastrar-submit").addEventListener("click", func
         modalStatus("Você tem certeza que deseja cadastrar as ações corretivas? ", "question", () => {
             modalStatus("Ações corretivas cadastradas com sucesso! ", "success", () => {
                 cadastrar_acao_corretiva()
-                window.location.href = "listar_checklist_concluidas.php"
+                window.location.href = "listar_salas.php"
             })
         })
     }

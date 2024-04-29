@@ -33,7 +33,7 @@ Sala::setStatusSala($_GET['id_sala'], 'L');
  
 
 $id_realiza = $_GET["id_realizacao"];
-ResponderChecklist::setConfLogis($id_realiza, "s");
+ResponderChecklist::setConfLogis($id_realiza, "p");
 $email = $_GET["email"];
 $dadosNC = json_decode(file_get_contents('php://input'), true); 
 $response = ["status" => false];
@@ -78,13 +78,10 @@ if ($email == "true") {
 
     $hratual = date('H:i:s');
     foreach($dadosNC as $nConformidade){
-
-
+ 
         $contentEmail = "Nova não conformidade registrada na sala ".$dadosSala['nome'] ." às ". $hratual . " por " . $dadosLogistica['nome'] . " (".$dadosLogistica['email'].").";
-        // echo json_encode($nConformidade);exit;
         $obMailer -> sendEmailNConformidade($dadosDocente["email"] ,$contentEmail, $dadosLogistica, $dadosDocente, $nConformidade['imagens'], $nConformidade['descricao_n_conformidade']);
-   
-
+ 
     }
 
 }

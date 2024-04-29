@@ -235,6 +235,7 @@ border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .botao-padrao-cadastrar{
@@ -242,6 +243,9 @@ border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+
+  background-color: transparent;
 }
 
 
@@ -291,7 +295,7 @@ border-radius: 10px;
   cursor: pointer;
   color: var(--cor-primaria-botao-green);
   font-style: normal;
-  
+  background-color: transparent;
   font-weight: bold;
   font-size: 15px;
 }
@@ -314,6 +318,7 @@ border-radius: 10px;
   font-weight: bold;
   font-size: 15px;
   text-decoration: none;
+  background-color: transparent;
 }
 
 .botao-voltar-link:hover {

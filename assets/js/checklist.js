@@ -244,8 +244,7 @@ async function cadastrar_checkl(){
 
     const urlParams = new URLSearchParams(window.location.search);
     const id_sala = urlParams.get('id_sala');
-
-
+ 
     if (todasPergResp()) {
         listaData["observacao"] = document.querySelector("#nova_observacao").value
         let data_php = await fetch('./actions/cat_data_pergunta.php?id_sala=' + id_sala + '&id_checklist=' + id_checklist, {
@@ -253,7 +252,7 @@ async function cadastrar_checkl(){
             body: JSON.stringify(listaData)
         });
 
-        let res = await data_php.json()
+        let res = await data_php.json() 
 
         if (res.status == true) {
  
@@ -264,7 +263,7 @@ async function cadastrar_checkl(){
 
         } else {
 
-            modalStatus('Aconteceu, tente novamente mais tarde', 'error', () => {
+            modalStatus('Aconteceu um erro :), tente novamente mais tarde', 'error', () => {
                 location.href = 'visualizar_sala.php?id_sala=' + id_sala
             })
 

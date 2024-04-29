@@ -33,6 +33,8 @@ class ResponderChecklist
 
     public static function cadastrar($dadosResp = [], $id_sala = 1, $id_check)
     {          
+
+        
         try{ 
             $responder_check = [
                 'id_usuario'     => $_SESSION['id_user'],
@@ -50,10 +52,10 @@ class ResponderChecklist
                 echo(json_encode($e->getMessage()));
             }
             
-            
+             
             foreach ($dadosResp as $dataResp)
             {
-                if (is_string($dataResp)) {
+                if (is_string($dataResp)) { 
                     continue;
                 }
                 // se for uma não conformidade  
@@ -76,7 +78,7 @@ class ResponderChecklist
      
                    $nao_conformidade = [
                        'id_realiza' =>  $last_id,
-                       'id_prof' => $_SESSION['id_user'],
+                       'id_user' => $_SESSION['id_user'],
                        'id_pergu' => $dataResp['id_pergunta'],
                        'descricao_NC' => $dataResp['descricao'],
                        'img1' => (isset($imgs_nc[0])) ? $imgs_nc[0] : '',
@@ -149,7 +151,7 @@ class ResponderChecklist
      
                    $nao_conformidade = [
                        'id_realiza' =>  $id_last_insert,
-                       'id_prof' => $_SESSION['id_user'],
+                       'id_user' => $_SESSION['id_user'],
                        'id_pergu' => $dataResp['id_pergunta'],
                        'descricao_NC' => $dataResp['descricao'],
                        'img1' => (isset($imgs_nc[0])) ? $imgs_nc[0] : '',
@@ -238,7 +240,7 @@ class ResponderChecklist
             
             $nao_conformidade = [
                 'id_realiza' =>  $id_last_insert,
-                'id_prof' => $_SESSION['id_user'],
+                'id_user' => $_SESSION['id_user'],
                 'id_pergu' => $pergunta['id_pergu'],
                 'descricao_NC' => $pergunta['descricao_NC'],
                 'img1' => (isset($nome1)) ? $nome1 : '',

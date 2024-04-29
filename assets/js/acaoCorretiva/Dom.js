@@ -47,6 +47,7 @@ export class Dom {
 
         var teto_colorido = document.createElement("div")
         teto_colorido.style.backgroundColor = "red"
+        teto_colorido.style.position = "relative"
         teto_colorido.style.width = "100%"
         teto_colorido.style.height = "10%"
         teto_colorido.style.minHeight = "5px"
@@ -116,6 +117,7 @@ export class Dom {
 
         var botao_estatico = document.createElement("i")
         botao_estatico.className = "bi bi-x-circle"
+        botao_estatico.style.position = "relative"
         botao_estatico.style.color = "red"
         botao_estatico.style.fontSize = "40px"
         botao_estatico.style.marginRight = "20px"

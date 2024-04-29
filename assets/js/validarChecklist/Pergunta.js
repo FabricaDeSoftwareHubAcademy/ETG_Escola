@@ -4,8 +4,7 @@ export class Pergunta {
         this.dataPergunta = dataPergunta; //array 
     }
 
-    getAll() {
-        console.log(this.dataPergunta)
+    getAll() { 
         return this.dataPergunta;
     }
 

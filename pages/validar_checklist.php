@@ -24,12 +24,14 @@ $observacao = ResponderChecklist::getObservacao($idResponderCheck);
 $id_user = ResponderChecklist::getUserRealiza($idResponderCheck);
 // var_dump($observacao);exit;
 // $perguntas["id_realizacao"] = $idResponderCheck;
-$id_sala = 0;
+$id_sala = 0; 
 foreach ($perguntas as &$row) {
     // var_dump($row);exit;
     $id_sala = $row["id_sala"]; 
-    $NaoConformidade = $objValidarChecklist -> hasNaoConf(idPergunta: $row["id_pergunta"], idRealiza: $idResponderCheck);
-    echo($NaoConformidade."<br>");
+    $NaoConformidade = $objValidarChecklist -> hasNaoConf(idPergunta: $row["id_pergunta"], idRealiza: $idResponderCheck); 
+
+    
+
     $row["observacoes"] = $observacao;
     $row["id_user_realiza"] = $id_user;
     $row["id_realizacao"] = $idResponderCheck;
@@ -45,8 +47,9 @@ foreach ($perguntas as &$row) {
         $row["NaoConformidade"] = true;
         $row["responsavel"] = "docente";
 
-    }
 
+    }
+ 
 
 }
 

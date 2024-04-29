@@ -10,8 +10,11 @@ $id_checklist  = $_GET['id_checklist'];
 $dados = json_decode(file_get_contents('php://input'), true); 
 // echo json_encode($dados);
 $status = false; 
-if(isset($id_sala,$id_checklist)){
 
+
+if(isset($id_sala,$id_checklist)){
+    
+    
     try{
         ResponderChecklist::cadastrar($dados, $id_sala, $id_checklist);
         // echo(json_encode(ResponderChecklist::cadastrar($dados, $id_sala, $id_checklist)));
@@ -28,7 +31,6 @@ echo(json_encode([
 ]));
 
  
-
 
 
  
