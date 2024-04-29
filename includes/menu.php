@@ -286,9 +286,7 @@ $ifrel = $perfil['relatorios'] == '1';
                                 <h5 class="titulo-info" id="titulo-home">Check-List</h5>                 
                             </a>
                             <ul class="sub-menu3">
-                                ' .
-
-                            ($ifreaac ? '<li class="iten-submenu3"><a href="listar_checklist_concluidas.php" id="fonte-submenu3">Ação Corretiva</a></li>' : '') .
+                                ' . 
                             ($ifgencheck ? '<li class="iten-submenu3"><a href="cadastrar_checklist.php" id="fonte-submenu3">Cadastrar Check-List</a></li>' : '') .
                             ($ifreaac ? '<li class="iten-submenu3"><a href="listar_checklist_concluidas.php" id="fonte-submenu3">Validar Check-List</a></li>' : '') .
                             ($ifgencheck ? '<li class="iten-submenu3"><a href="gerenciar_checklist.php" id="fonte-submenu3">Vizualizar Check-List</a></li>' : '')
