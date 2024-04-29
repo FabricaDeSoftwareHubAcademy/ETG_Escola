@@ -102,8 +102,8 @@ class Mailer
 
         $email->Body = $this->createEmbedMail('Não Conformidade', $destinatario['nome'], $content, 'Ver Não Conformidade', '#ff5050',$imgs, textNConformidade: $textNConformidade);
         $email->addAddress($emailparam); 
-        // $email->addAddress('logisticatur@ms.senac.br '); 
-        // $email->addAddress('simone.demenciano@ms.senac.br');
+        $email->addAddress('logisticatur@ms.senac.br '); 
+        $email->addAddress('simone.demenciano@ms.senac.br');
         $email->isHTML(true);
 
         foreach($imgs as $img){
