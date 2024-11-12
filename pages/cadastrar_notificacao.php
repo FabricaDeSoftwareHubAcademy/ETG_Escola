@@ -1,5 +1,6 @@
 <?php
 session_start();
+$titulo_page = "Cadastrar Notificação";
 require "../vendor/autoload.php";
 $titulo_page = 'Cadastrar Notificacao';
 require("../includes/header/header.php");

@@ -15,6 +15,8 @@ class ValidarChecklist
     }
 
     public function getPerguntas($idSala) : array {
+
+        
         return Pergunta::getDados(id_sala: $idSala);
     }
 

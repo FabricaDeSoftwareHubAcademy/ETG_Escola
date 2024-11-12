@@ -1,5 +1,6 @@
 <?php
 session_start();
+$titulo_page = "Editar Usuário";
 
 include_once("../includes/menu.php");
 

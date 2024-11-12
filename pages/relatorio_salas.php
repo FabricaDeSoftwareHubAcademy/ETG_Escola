@@ -1,5 +1,6 @@
 <?php
 session_start();
+$titulo_page = "Relatório Salas";
 require __DIR__."/../vendor/autoload.php";
 include_once("../includes/menu.php");
 if(!$ifreaac){

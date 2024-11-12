@@ -1,5 +1,6 @@
 <?php
 session_start();
+$titulo_page = "Cadastrar Sala";
 require __DIR__."/../vendor/autoload.php";
 $titulo_page = 'Cadastrar Sala';
 require("../includes/header/header.php");

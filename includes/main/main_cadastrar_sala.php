@@ -138,7 +138,8 @@
                             <div class="alinar-img">
 
                                 <div class="coisas_enilda">
-                                    <span class="span_semmod darkModeEdit" id="img-text"> Insira a imagem : Resolução 416x150 </span>
+                                    <span class="span_semmod darkModeEdit" id="img-text"> Insira a imagem : Resolução 416x150 <br>A foto deve estar na horizontal  </span>
+                                    
 
                                     <label id="botão-img" class="btn_img_cadastrar_sala" for="arquivo">Selecionar Foto</label>
                                 </div>
@@ -316,14 +317,12 @@
                                 })
 
                                 let response = await dados_php.json()
-
-                                if (response) {
-
-                                    modalStatus("Escolha pelo menos um dia de Funcionamento e um periodo de funcionamento.", "success", () => {
-                                        window.location.href = "./listar_salas.php"
-                                    })
-
-                                } else {
+                                
+                                if(response){
+                                                                      
+                                    modalStatus("Sala Cadastrada com sucesso.","success",()=>{window.location.href="./listar_salas.php"})
+                                
+                                }else{
                                     console.log("2")
                                 }
 

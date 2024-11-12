@@ -18,6 +18,8 @@
     const checkbox9 = document.getElementById("gerenciar_perfis");
     const checkbox10 = document.getElementById("ver_relatorios");
 
+    
+
     //Verifica se algum dos mais usados ja esta checado
 
 
@@ -63,15 +65,17 @@
             checkbox4.checked = false;
             checkbox5.checked = false;
             checkbox7.checked = false;
+            checkbox10.checked = false;
 
             checkbox6.checked = true;
-            checkbox10.checked = true;
             mais_usados_administrador.checked = false;
             mais_usados_logistica.checked = false;
+            
         }
         else
         {
             checkbox6.checked = false;
+            checkbox10.checked = false;
         }
     });
 
@@ -82,6 +86,7 @@
             checkbox2.checked = false;
             checkbox3.checked = true;
             checkbox6.checked = false;
+            checkbox10.checked = false;
 
             checkbox4.checked = true;
             checkbox5.checked = true;
@@ -95,6 +100,7 @@
             checkbox3.checked = false;
             checkbox5.checked = false;
             checkbox7.checked = false;
+            checkbox10.checked = false;
 
         }
     });

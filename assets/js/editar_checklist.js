@@ -283,6 +283,7 @@ async function updateChecklist(){
         body:formData
     })
     let res = await request.json()
+    console.log(res)
     if(res.status){
 
         modalStatus('Checklist editado com Sucesso!','success',() => { 

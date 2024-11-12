@@ -1,5 +1,6 @@
 <?php  
 session_start();
+$titulo_page = "Cadastrar Checklist POS";
 require __DIR__."/../vendor/autoload.php";
 $titulo_page = 'Cadastrar Checklist Pre Aula';
 require("../includes/header/header.php");
@@ -33,6 +34,7 @@ $perguntaPos = [];
 
 if ($dados_pergunta)
 {
+    
     foreach ($dados_pergunta as $linha)
     { 
         if ($linha["tipo"] == "1" || $linha['tipo'] == '2')

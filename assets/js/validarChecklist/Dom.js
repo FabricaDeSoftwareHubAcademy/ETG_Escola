@@ -1,8 +1,8 @@
 import { Pergunta } from './Pergunta.js'
 
 export class Dom {     
-    constructor(dataNaoConf) {
-        this.dataNaoConf = dataNaoConf
+    constructor() {
+        this.dataNaoConf = []
         this.objPergunta = new Pergunta(perguntasJson)
         this.dataPerguta = this.objPergunta.getAll()
         this.manipulacao_botoes = []
@@ -10,6 +10,9 @@ export class Dom {
         this.contador_limite_fotos_nao_conformidade = 0
     }
 
+    get_dataNaoConf() {
+        return this.dataNaoConf
+    }
     // addNaoConfToDataNaoConf(pergunta) {
     //     this.dataNaoConf.push(pergunta)
     // }
@@ -18,8 +21,7 @@ export class Dom {
         var tipo_preaula = []
         var tipo_posaula = []
 
-        for (let pergunta of this.dataPerguta) {
-            // console.log(pergunta["tipo"])
+        for (let pergunta of this.dataPerguta) { 
 
             if (pergunta["tipo"] == "0") {
                 tipo_preaula.push(pergunta)
@@ -60,7 +62,7 @@ export class Dom {
 
         var coutador_pre = 0
         for (var pergunta of tipo_preaula) {
-            coutador_pre++
+            coutador_pre++ 
             if (pergunta["NaoConformidade"]) {
                 // this.addNaoConfToDataNaoConf(pergunta)  
                 this.criarElementoRespondidoErrado(pergunta["pergunta"], pergunta["id_pergunta"], pergunta) //checando se a pergunta tem uma nao conformidade
@@ -192,6 +194,7 @@ export class Dom {
 
         var teto_colorido = document.createElement("div")
         teto_colorido.style.backgroundColor = "green"
+        teto_colorido.style.position = "relative"
         teto_colorido.style.width = "100%"
         teto_colorido.style.height = "10%"
         teto_colorido.style.minHeight = "5px"
@@ -217,15 +220,12 @@ export class Dom {
         var botao_incorreto = document.createElement("i")
         botao_incorreto.className = "bi bi-x"
         botao_incorreto.style.cursor = "pointer"
-        botao_incorreto.id = "este_e_da_pergunta"
+        botao_incorreto.id = "este_e_da_pergunta" 
 
         var self_0=this
         botao_incorreto.onclick = function() {
             
-
-
-
-            console.log(self_0.dataNaoConf)
+ 
             for (let i = 0; i < self_0.dataNaoConf.length; i++) {
                 if (self_0.dataNaoConf[i]["id_pergunta"] == idPergunta) {
                     self_0.dataNaoConf.splice(i, 1)
@@ -269,8 +269,7 @@ export class Dom {
         botao_correto.className = "bi bi-check"
         botao_correto.style.cursor = "pointer"
         botao_correto.id = "este_e_da_pergunta"
-        botao_correto.onclick = function() {
-            console.log(self_0.dataNaoConf)
+        botao_correto.onclick = function() { 
             for (let i = 0; i < self_0.dataNaoConf.length; i++) {
                 if (self_0.dataNaoConf[i]["id_pergunta"] == idPergunta) {
                     self_0.dataNaoConf.splice(i, 1)
@@ -295,6 +294,8 @@ export class Dom {
         var botao_estatico = document.createElement("i")
         botao_estatico.className = "bi bi-check-circle"
         botao_estatico.style.color = "green"
+        botao_estatico.style.position = "relative"
+
         botao_estatico.style.fontSize = "40px"
         botao_estatico.style.marginRight = "20px"
         // botao_incorreto.className = "bi bi-check-circle"
@@ -330,6 +331,7 @@ export class Dom {
 
         var teto_colorido = document.createElement("div")
         teto_colorido.style.backgroundColor = "red"
+        teto_colorido.style.position = "relative"
         teto_colorido.style.width = "100%"
         teto_colorido.style.height = "10%"
         teto_colorido.style.minHeight = "5px"
@@ -381,49 +383,48 @@ export class Dom {
         botoes_direita.style.display = "flex";
         botoes_direita.style.justifyContent = "center";
 
-        var botao_incorreto = document.createElement("i")
-        botao_incorreto.className = "bi bi-x"
-        botao_incorreto.style.cursor = "pointer"
-        botao_incorreto.id = "este_e_da_pergunta"
-        botao_incorreto.onclick = function() {
-            console.log(self_0.dataNaoConf)
-            for (let i = 0; i < self_0.dataNaoConf.length; i++) {
-                if (self_0.dataNaoConf[i]["id_pergunta"] == idPergunta) {
-                    self_0.dataNaoConf.splice(i, 1)
-                }
-            }
+        // var botao_incorreto = document.createElement("i")
+        // botao_incorreto.className = "bi bi-x"
+        // botao_incorreto.style.cursor = "pointer"
+        // botao_incorreto.id = "este_e_da_pergunta"
+        // botao_incorreto.onclick = function() { 
+        //         for (let i = 0; i < self_0.dataNaoConf.length; i++) {
+        //             if (self_0.dataNaoConf[i]["id_pergunta"] == idPergunta) {
+        //                 self_0.dataNaoConf.splice(i, 1)
+        //             }
+        //         }
 
 
 
 
-            if (botao_incorreto.classList.contains("bi-x-circle")) {
-                botao_incorreto.className = "bi bi-x"
-                botao_incorreto.style.color = "black"
+        //         if (botao_incorreto.classList.contains("bi-x-circle")) {
+        //             botao_incorreto.className = "bi bi-x"
+        //             botao_incorreto.style.color = "black"
 
-                for (let i = 0; i < self_0.manipulacao_botoes.length; i++) {
-                    if (self_0.manipulacao_botoes[i]["id"] == idPergunta) {
-                        self_0.manipulacao_botoes[i]["errado"] = 0
-                        self_0.manipulacao_botoes[i]["certo"] = 0
-                    }
-                }
-            } else {
+        //             for (let i = 0; i < self_0.manipulacao_botoes.length; i++) {
+        //                 if (self_0.manipulacao_botoes[i]["id"] == idPergunta) {
+        //                     self_0.manipulacao_botoes[i]["errado"] = 0
+        //                     self_0.manipulacao_botoes[i]["certo"] = 0
+        //                 }
+        //             }
+        //         } else {
 
-                botao_incorreto.className = "bi-x-circle"
-                botao_incorreto.style.color = "red"
-                botao_incorreto.id = "este_e_da_pergunta"
-                self_0.chamar_modal_nao_conf(dadosPergunta, botao_incorreto, idPergunta)
-                for (let i = 0; i < self_0.manipulacao_botoes.length; i++) {
-                    if (self_0.manipulacao_botoes[i]["id"] == idPergunta) {
-                        self_0.manipulacao_botoes[i]["errado"] = 1
-                        self_0.manipulacao_botoes[i]["certo"] = 0
-                    }
-                }
-                if (botao_correto.classList.contains("bi-check-circle")) {
-                    botao_correto.className = "bi-check"
-                    botao_correto.style.color = "black"
-                }
-            }
-        }
+        //             botao_incorreto.className = "bi-x-circle"
+        //             botao_incorreto.style.color = "red"
+        //             botao_incorreto.id = "este_e_da_pergunta"
+        //             self_0.chamar_modal_nao_conf(dadosPergunta, botao_incorreto, idPergunta)
+        //             for (let i = 0; i < self_0.manipulacao_botoes.length; i++) {
+        //                 if (self_0.manipulacao_botoes[i]["id"] == idPergunta) {
+        //                     self_0.manipulacao_botoes[i]["errado"] = 1
+        //                     self_0.manipulacao_botoes[i]["certo"] = 0
+        //                 }
+        //             }
+        //             if (botao_correto.classList.contains("bi-check-circle")) {
+        //                 botao_correto.className = "bi-check"
+        //                 botao_correto.style.color = "black"
+        //             }
+        //         }
+        //     }
 
 
 
@@ -431,8 +432,7 @@ export class Dom {
         botao_correto.className = "bi bi-check"
         botao_correto.style.cursor = "pointer"
         botao_correto.id = "este_e_da_pergunta"
-        botao_correto.onclick = function() {
-            console.log(self_0.dataNaoConf)
+         
             for (let i = 0; i < self_0.dataNaoConf.length; i++) {
                 if (self_0.dataNaoConf[i]["id_pergunta"] == idPergunta) {
                     self_0.dataNaoConf.splice(i, 1)
@@ -460,15 +460,17 @@ export class Dom {
                         self_0.manipulacao_botoes[i]["errado"] = 0
                     }
                 }
-                if (botao_incorreto.classList.contains("bi-x-circle")) {
-                    botao_incorreto.className = "bi-x"
-                    botao_incorreto.style.color = "black"
-                }
+                // if (botao_incorreto.classList.contains("bi-x-circle")) {
+                //     botao_incorreto.className = "bi-x"
+                //     botao_incorreto.style.color = "black"
+                // }
             }
-        }
+       
+        botao_correto.style.display = "none"
 
         var botao_estatico = document.createElement("i")
         botao_estatico.className = "bi bi-x-circle"
+        botao_estatico.style.position = "relative"
         botao_estatico.style.color = "red"
         botao_estatico.style.fontSize = "40px"
         botao_estatico.style.marginRight = "20px"
@@ -482,7 +484,7 @@ export class Dom {
         labelDiv.appendChild(div_esquerda_labelDiv)
         labelDiv.appendChild(div_direita_labelDiv)
         botoes_direita.appendChild(botao_correto)
-        botoes_direita.appendChild(botao_incorreto)
+        // botoes_direita.appendChild(botao_incorreto)
         mainDiv.appendChild(botao_estatico)
         mainDiv.appendChild(labelDiv)
         mainDiv.appendChild(botoes_direita)
@@ -490,6 +492,12 @@ export class Dom {
     }
 
     chamar_modal_nao_conf(pergunta, botao_incorreto, idPergunta) {
+
+        document.querySelector(".pergunta_nao_conf").innerHTML = ""
+        document.querySelector(".descricao_nao_conf").value = ""
+        document.querySelector(".upload-img").innerHTML = ""
+
+
         var self_0 = this
         var modal = document.querySelector(".mom")
         modal.style.display = "block"
@@ -592,8 +600,7 @@ export class Dom {
 
     salvar_modal_nao_conf(param) {
         var imagens = param["images"]
-        var data = []
-        var imagesToPHP = []
+        var data = {}
     
         // ARMAZENANDO AS IMAGENScriarLabelIncorreta
 
@@ -601,7 +608,6 @@ export class Dom {
         data["id_pergunta"] = param["id_pergunta"]
         data["imagens"] = imagens
         this.dataNaoConf.push(data)
-        console.log(this.dataNaoConf)
 
     }
 
@@ -632,8 +638,7 @@ export class Dom {
 
     loadImagesToPreview(event) {
         var div_pai = document.querySelector(".upload-img")
-        var divs_filhas = div_pai.getElementsByTagName("div")
-        console.log(divs_filhas.length)
+        var divs_filhas = div_pai.getElementsByTagName("div") 
         if (divs_filhas.length > 4) {
             modalStatus("Apenas um máximo de três imagens pode ser inserido.", "error", () => {})
             return
@@ -713,8 +718,7 @@ export class Dom {
     
     
     chamar_visualizar_nao_conformidade(nao_conformidade) {
-        
-        console.log(nao_conformidade)
+         
         var modal_mostrar_nao_conformidade = document.querySelector("#mostrar-nao-conformidade")
         modal_mostrar_nao_conformidade.style.display = "block"
         
@@ -724,8 +728,8 @@ export class Dom {
                 continue
             }
             var nome_img = "img__"+i
-            var img = document.querySelector("#"+nome_img)
-            img.src = nao_conformidade["imagesToPHP"][i] = "../storage/n_conformidade/"+nao_conformidade["imagesToPHP"][i]
+            var img = document.querySelector("#"+nome_img) 
+            img.src =  "../storage/n_conformidade/"+nao_conformidade["imagesToPHP"][i]
         }
         var div_descricao_nao_conformidade = document.querySelector("#texto_em_agora_n_conf p")
         div_descricao_nao_conformidade.innerText = nao_conformidade["descricao_nao_confirmidade_docente"]

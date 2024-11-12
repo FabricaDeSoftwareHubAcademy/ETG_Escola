@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$titulo_page = "Editar Usuários";
 include_once("../includes/menu.php");
 
 if(!$ifuser){

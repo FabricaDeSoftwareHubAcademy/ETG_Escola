@@ -122,9 +122,15 @@ a{
 }
 .card .card_icon .bi-exclamation-octagon{
     color: #FF0000;
+    position: relative;
+}
+.card .bi-exclamation-diamond{
+    color: #eed202;
+    position: relative;
 }
 .card .card_icon .bi-check-square{
     color: #00a000;
+    position: relative;
 }
 .pagination{
     display: flex;

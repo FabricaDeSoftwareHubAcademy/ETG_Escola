@@ -1,5 +1,6 @@
 <?php
 session_start();
+$titulo_page = "Editar Perfil";
 require __DIR__."/../vendor/autoload.php";
 $titulo_page = 'Editar Perfil';
 include_once("../includes/menu.php");

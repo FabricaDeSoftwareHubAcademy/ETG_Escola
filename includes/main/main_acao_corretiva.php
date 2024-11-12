@@ -3,7 +3,10 @@
 <script type="module" src="../assets/js/acaoCorretiva/main.js"></script>
 <script src="../assets/js/modais.js"></script>
 
- 
+
+<script>
+    var perguntasJson = <?php echo $perguntasJson;?>;
+</script>
 
 <!-- GERAL -->
 <body class="container_checklist">
@@ -23,14 +26,13 @@
                 
             </div>
 
-                      <!-- PARTE DOS BOTÕES -->
             <div class="alinar-botoes">
-            <!--Botão voltar-->
+
                 <div class="botao-padrao-voltar">
-                    <a href="listar_checklist_concluidas.php" class="botao-voltar-link" id="buttonBackModalNaoConf">Cancelar</a>
+                    <a href="listar_checklist_concluidas.php" class="botao-voltar-link" id="buttonBackModalNaoConf">Sair</a>
                 </div>
                 <div class="botao-padrao-cadastrar">
-                    <button name="btn_submit" type="submit" class="botao-cadastrar-submit" id="btn-cadastrar-acao-corretiva" value="CADASTRAR">Ação Corretiva</button>
+                    <button name="btn_submit" type="submit" class="botao-cadastrar-submit" id="botao-cadastrar-submit" value="CADASTRAR">Ação Corretiva</button>
                 </div>
             </div>
 

@@ -32,14 +32,15 @@ class CadastroChecklist
     }
 
     //CREATE
-    public static function cadastrarPergunta($dados, $idCheck){
+    public static function cadastrarPergunta($dados, $idCheck, $update = false) {
         try{
-
-            $dados = explode(',', $dados);
- 
+            if($update == false){
+                $dados = explode(',', $dados);
+            }
+             
             $obBanco = new Banco("relacao_pergunta_checklist");
             $pergJaCad = [];
-    
+            
             // receber as perguntas que ja estão cadastrados
             $dadosIdPergunta = $obBanco->select('id_check = "'.$idCheck.'"',campos:'id_pergunta')->fetchAll(PDO::FETCH_ASSOC); 
             

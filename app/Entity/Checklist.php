@@ -39,10 +39,11 @@ class Checklist
 
     public static function getDoneCheck($inicio = 0) {
         $obj_banco = new Banco('check_concluidas');
-        $data = [$obj_banco -> select(limit: "$inicio, 5") -> fetchAll(PDO::FETCH_ASSOC), $obj_banco -> select(campos: 'count(*) as total') -> fetch(PDO::FETCH_ASSOC)];
+        $data = [$obj_banco -> select(limit: "$inicio, 5",order:'conf_logis desc, data_fechamento DESC') -> fetchAll(PDO::FETCH_ASSOC), $obj_banco -> select(campos: 'count(*) as total') -> fetch(PDO::FETCH_ASSOC)];
+        // print_r($obj_banco -> select(limit: "$inicio, 5") -> fetchAll(PDO::FETCH_ASSOC));
         return $data;
     }
-    public static function getChecklist()
+        public static function getChecklist()
     {
         $obj_banco = new Banco('cadastro_checklist');
         $dados = $obj_banco->select(order:"id DESC");
@@ -114,9 +115,10 @@ class Checklist
         
         try{ 
             $obBanco = new Banco('relacao_pergunta_checklist'); 
+            
             $obBanco->delete($this->id_checklist,'id_check'); 
-    
-            return CadastroChecklist::cadastrarPergunta($id_perguntas,$this->id_checklist);
+           
+            return CadastroChecklist::cadastrarPergunta($id_perguntas,$this->id_checklist, true);
 
         }catch(PDOException $e){ 
             return $e->getMessage(); 
@@ -197,6 +199,17 @@ class Checklist
         return $query;
     }
 
+    public static function validar_40_minutos($id_sala,$id_responsavel){
+        $obj_banco = new Banco('responder_check');
+        $query = $obj_banco -> get_horario_pre($id_sala,$id_responsavel)->fetchAll(PDO::FETCH_ASSOC);
+        return ($query);
+    }
+
+    public static function validar_se_o_chechlist_foi_respondido(){
+        $obj_banco = new Banco('responder_check');
+        $data_hora=$obj_banco->saber_data_hora_banco();
+        
+    }
 
 
 

@@ -19,7 +19,7 @@
             <div>
                 <section class="quadrado-perfil">
                     <div class="foto-perfil">
-                        <img id="img_user" src="../assets/imgs/users/<?= $foto ?>" alt="">
+                        <img id="img_user" class="imagem_user" src="../assets/imgs/users/<?= $foto ?>" alt="">
                     </div>
                 </section>
 

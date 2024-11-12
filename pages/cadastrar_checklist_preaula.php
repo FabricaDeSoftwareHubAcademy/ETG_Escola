@@ -1,5 +1,6 @@
 <?php  
 session_start();
+$titulo_page = "Cadastrar Checklist PRE";
 require __DIR__."/../vendor/autoload.php";
 $titulo_page = 'Cadastrar Checklist Pre Aula';
 require("../includes/header/header.php");

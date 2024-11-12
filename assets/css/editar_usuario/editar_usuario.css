@@ -16,6 +16,12 @@
   font-weight: bold;
   font-size: 45px;
 }
+.imagem_user{
+
+  height: 100%;
+  width: 100%;
+  border-radius: 80px;
+}
 
 @media screen and (max-width:500px ){
 

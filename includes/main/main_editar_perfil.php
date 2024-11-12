@@ -1,7 +1,7 @@
 
-<!-- <link rel="stylesheet" href="https/cdnjs.cloudflare.comlibs/font-awesome/6.4.0/css/all.min.css"> -->
+ 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-<!-- POP_UP -->
+ 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="../assets/css/cadastrar_editar_perfil.css">
@@ -85,7 +85,7 @@
             </div>
         </div>
     </div>
-<!-- </main>    -->
+ 
 </body>
 <script>
     var btn_submit = document.getElementById('botao_salvar');
@@ -93,12 +93,12 @@
         let form = document.getElementById('form_cad')
         console.log(form)
         let formData = new FormData(form)
-        // console.log(formData)
+       
         
         let dados_php = await fetch("../pages/actions/action_editar_perfil.php?id=<?=$_GET['id']?>",{method:"POST",
             body: formData
         })
-        // let dados_php = await dados_php_php.json()
+       
         let response = await dados_php.json();
         console.log(response);
         

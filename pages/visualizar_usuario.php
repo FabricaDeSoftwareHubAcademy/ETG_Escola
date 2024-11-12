@@ -1,11 +1,12 @@
 <?php
 session_start();
+$titulo_page = 'Lista Usuarios';
 require __DIR__."/../vendor/autoload.php";
 include_once("../includes/menu.php"); 
 if(!$ifuser){
     header("Location: ../pages/listar_recados.php");
 }
-$titulo_page = 'Lista Usuarios';
+
 require("../includes/header/header.php");
 
 use App\Entity\Usuario;
@@ -32,7 +33,7 @@ foreach ($dados_user as $row_user)
             </div>
         </div>
     </li>';
-
+    
 }
                         
 require("../includes/main/main_visualizar_usuarios.php");

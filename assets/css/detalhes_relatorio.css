@@ -12,6 +12,8 @@
   }
 .todas_nao_conf{
     padding-left: 2%;
+    margin: 0 auto;
+    max-width: 832px;
     width: 100%;
 }
 .tela_detalhes{
@@ -19,11 +21,12 @@
     max-width: 830px;
     margin: auto;
 }
+
 .titulo{
     width: 100%;
     text-align: center;
     font-size: 32px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     
 }
 .dados_responsavel{
@@ -35,25 +38,26 @@
     margin-left: 1%;
 }
 .esquerda{
-    width: 40%;
+    width: 96%;
     display: flex;
-    flex-direction: column;
-    /* justify-content: start; */
-    align-items: start;
+    justify-content: space-around;
+    
 }
-.nome{
+/* .nome{
     padding-right: 27%;
-}
+} */
 
 .direita{
-    width: 40%;
-    margin-right: 7%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 .area_nao_conformidade{
     
     flex-direction: column;
     width: 96%;
-    height: 60vh;
+    height: 64vh;
     max-width: 832px;
     background-color: rgb(255, 255, 255);
     overflow: hidden;
@@ -67,7 +71,7 @@
 }
 .nao_conformidade{
     width: 96%;
-    height: 245px;
+    height: 280px;
     text-align: center;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -76,7 +80,7 @@
     box-shadow: 2px 2px 8px 0px;
 }
 .texto_nao_conformidade{
-    height: 50px;
+    height: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
@@ -110,11 +114,11 @@
     /* margin-right: 5%; */
     /* background-color: red; */
 }
-.data_abertura{
+/* .data_abertura{
     width: 98%;
     display: flex;
     justify-content: end;
-}
+} */
 /* .view_imagem{
     position: fixed;
     display: flex;
@@ -136,6 +140,18 @@
 } */
 
 @media print {
+    @page {
+        size: A4; /* Você pode usar outros tamanhos como A3, carta (letter), etc. */
+        margin: 1cm; /* Define as margens de cada folha */
+      }
+    
+      /* Define a quebra de página após cada terceiro elemento nao_conformidade */
+    .nao_conformidade:not(:first-child):nth-child(3n) {
+    page-break-after: always;
+    }
+    .url-bar {
+        display: none !important;
+      }
     .cabecalho-menu{
         display: none;
     }
@@ -160,6 +176,13 @@
         border-radius: 10px;
         padding: 5px;
     }
+    .botao-padrao-voltar{
+        display: none;
+    }
+    .area_botões{
+        display: none;
+    }
+    
     
 }
 
@@ -169,6 +192,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    
 }
 /* .botao-padrao-voltar{
     width: 100%;

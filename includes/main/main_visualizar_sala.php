@@ -8,6 +8,8 @@
 <!-- LINK DO CSS "visualizar_sala.css" -->
 <link rel="stylesheet" href="../assets/css/visualizar_sala.css">
 <script defer src="../assets/js/exibir_foto.js"></script>
+<!-- <script src="../assets/js/modais.js" defer></script> -->
+
 
 <body class="visualizar_sala">
             <div id="overlay_imagem">
@@ -103,6 +105,7 @@
 
                 </div>
         </section>  
+        
 </body>
 
 

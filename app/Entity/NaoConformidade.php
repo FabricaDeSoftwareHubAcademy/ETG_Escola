@@ -15,10 +15,12 @@ class NaoConformidade
     }
 
     public static function getNaoConfByIdPerguntaAndIdRealiza($idPergunta, $idRealiza) {
+        
         $objBanco = new Banco('reg_nc');
         $dados = $objBanco -> select("id_pergu = ".$idPergunta . " AND id_realiza = " .$idRealiza);
-        // var_dump($dados -> fetchAll(PDO::FETCH_ASSOC));exit;
+        
         if ($dados -> rowCount()) {
+
             $dados = $dados-> fetchAll(PDO::FETCH_ASSOC)[0];
             // var_dump($dados);exit;
 

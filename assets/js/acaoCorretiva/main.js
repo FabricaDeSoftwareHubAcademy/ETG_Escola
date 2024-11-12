@@ -1,71 +1,55 @@
 import { Dom } from './Dom.js';
-
+var preenchidas = perguntasJson.length;
+const id_salaa = perguntasJson[0]["id_sala"]
+console.log(perguntasJson)
  
-// Obtenha o array armazenado no sessionStorage
-var dadosGetStorage = JSON.parse(sessionStorage.getItem('NaoConformidades'));
-var id_realizacao = JSON.parse(sessionStorage.getItem('id_realizacao'));
-var id_sala = JSON.parse(sessionStorage.getItem('id_sala'));
-var AcoesCorretivas = [];
-// console.log(id_realizacao);
 
-// console.log(dadosGetStorage)
-var preenchidas = []
-for (let i = 0; i < dadosGetStorage.length; i++) {
-    // console.log(dadosGetStorage[i])
-    preenchidas[i] = {"id_pergunta": dadosGetStorage[i]["id_pergunta"],
-    "preenchido": false}
-}
-console.log(preenchidas)
+const DOM = new Dom(perguntasJson);
 
-
-
-
-const DOM = new Dom(dadosGetStorage, AcoesCorretivas, preenchidas);
-
-
-document.querySelector("#btn-cadastrar-acao-corretiva").addEventListener("click", function(event){
+document.querySelector(".botao-cadastrar-submit").addEventListener("click", function(event){
     event.preventDefault();
-    console.log(preenchidas);
 
+    var todas_corretas = document.querySelectorAll('.bi-check-circle[id="este_e_da_pergunta"]')
     
-    let aprovado = true;
-    for (let i = 0; i < preenchidas.length; i++) {
-        if (preenchidas[i]["preenchido"] == false) {
-            aprovado = false;
-            break;
-        }
-    }
-    
-    if (aprovado) {
-        var dadosAjax = []
-        // AcoesCorretivas
-        // console.log("foii")
-        console.log(dadosAjax);
-        dadosAjax.push(AcoesCorretivas);
-        ajaxHTTP(dadosAjax);
+    if (!(todas_corretas.length == preenchidas)) {
+        modalStatus("Responda todas as perguntas", "error") 
     } else {
-        modalStatus("Preencha todos os campos", "error")
+        modalStatus("Você tem certeza que deseja cadastrar as ações corretivas? ", "question", () => {
+            modalStatus("Ações corretivas cadastradas com sucesso! ", "success", () => {
+                cadastrar_acao_corretiva()
+                window.location.href = "listar_salas.php"
+            })
+        })
     }
-    
 })
 
-async function ajaxHTTP(dados) {
-    var request = await fetch("actions/action_cadastrar_acao_corretiva.php?id_realizacao="+id_realizacao+"&id_sala="+id_sala, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(dados)
-    });
-    var response = await request.json();
-    console.log(response)
+document.querySelector(".botao-voltar-link").addEventListener("click", function(event) {
+    event.preventDefault()
+    modalStatus("Você tem certeza que deseja sair sem realizar as ações corretivas? ", "question", () => {
+        window.location.href = "listar_checklist_concluidas.php"
+    })
+}) 
 
-    if (response == true || response == "true") {
-        //MODAL
-        modalStatus("Sucesso", "success", () => {window.location.href = "./listar_checklist_concluidas.php";});
-        
-    }
+async function cadastrar_acao_corretiva() {
+
+    const queryString123 = window.location.search;  
+    const params123 = new URLSearchParams(queryString123); 
+    const id_realizacao = params123.get('id_realizacao');
+ 
+
+    let url = "./actions/action_cadastrar_acao_corretiva.php?id_sala="+id_salaa+"&id_realizacao="+id_realizacao
+    let request = await fetch(url, {
+        method: "POST",
+        headers:{
+                "Content-Type": "application/json"
+        },
+        body: JSON.stringify(DOM.post_malone_rockstar())
+    })
+
+    let response = await request.json()
+    console.log(response)
 }
+
 
 DOM.showPerguntas();
 

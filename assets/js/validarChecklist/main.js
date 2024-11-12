@@ -1,14 +1,15 @@
 import { Dom } from './Dom.js';
-
+// console.log(perguntasJson)
+var url = new URLSearchParams(window.location.search)
+const id_realizacao = url.get("id_realizacao")
 var preenchidas = perguntasJson.length;
 for (let i = 0; i < perguntasJson.length; i++) {
     if (perguntasJson[i]["tipo"] == 2) {
         preenchidas++
     }
 }
-console.log(preenchidas)
-var NaoConformidades = [];
-const DOM = new Dom(NaoConformidades);
+// console.log(preenchidas)
+const DOM = new Dom();
 
 DOM.showPerguntas();
 
@@ -20,52 +21,57 @@ buttonSubmit.addEventListener("click", async function(event) {
     var todas_n_conf = document.querySelectorAll('.bi-x-circle[id="este_e_da_pergunta"]')
     var todas_corretas = document.querySelectorAll('.bi-check-circle[id="este_e_da_pergunta"]')
     var total = (todas_n_conf.length + todas_corretas.length)
-    console.log(total)
+    // console.log(DOM.get_dataNaoConf())
+    // console.log(total)
     // console.log(todas_n_conf);
-    console.log(todas_corretas);
+    // console.log(todas_corretas);
     if (!(total >= preenchidas)) {
-        modalStatus("Responda todas as perguntas", "error")
-    } else {
-        modalStatus("DEU CERTO", "success")
+        modalStatusAcaoCorretiva("Responda todas as perguntas", "error")
     }
-    
-    // let aprovado = true;
-    // for (let i = 0; i < preenchidas.length; i++) {
-    //     if (preenchidas[i]["preenchido"] == false) {
-    //         aprovado = false;
-    //         break;
-    //     }
-    // }
-
-    // console.log(aprovado);
-    // if (aprovado) {
-    //     var url = new URLSearchParams(window.location.search)
-    //     var id_realizacao = url.get("id_realizacao")
-    
-    //     if (NaoConformidades.length == 0) {
-    //         // console.log("tudo certo por aqui");
-    //         modalStatus("Sucesso", "success", () => {window.location.href = "actions/action_cadastrar_acao_corretiva.php?id_realizacao="+id_realizacao + "&tudo_correto=" + true + "&id_sala=" + id_sala});
-            
-    //     } else {
-    //         sessionStorage.clear()
-            
-            
-    //         let luizNaoCadastra = await fetch('./actions/action_cadastrar_nao_conformidade_logistica.php?id_docente='+id_docente_resp+'&id_sala='+id_sala,{
-    //             method:"POST",
-    //             body: JSON.stringify(NaoConformidades)
-    //         });
-    //         let res = await luizNaoCadastra.json()
-            
-            
-    //         console.log(res) 
-
-    //         sessionStorage.setItem('NaoConformidades', JSON.stringify(NaoConformidades));
-    //         sessionStorage.setItem('id_realizacao', id_realizacao);
-    //         sessionStorage.setItem('id_sala', id_sala);
-    //         modalStatus("Sucesso", "success", () => {window.location.href = "acao_corretiva.php";});
-    //     }
-    // } else {
-    //     modalStatus("Preencha todos os campos", "error")
-    // }
-
+    else {
+        modalStatusAcaoCorretiva("Deseja enviar o email para a coordenação ?", "question", 
+        () => {
+            so_nao_conformidade(true)
+            modalStatusAcaoCorretiva("Deseja realizar as ações corretivas agora?", "question", () => {
+                window.location.href = "./acao_corretiva.php?id_realizacao="+id_realizacao
+            }, () => {
+                window.location.href = "./listar_checklist_concluidas.php"
+            })
+        }, 
+        () => {
+            so_nao_conformidade(false)
+            modalStatusAcaoCorretiva("Deseja realizar as ações corretivas agora?", "question", () => {
+                window.location.href = "./acao_corretiva.php?id_realizacao="+id_realizacao
+            }, () => {
+                window.location.href = "./listar_checklist_concluidas.php"
+            })
+        })
+    }
 })
+
+async function so_nao_conformidade(email = false) {
+    var id_docente = perguntasJson[0]["id_user_realiza"]
+    var id_sala = perguntasJson[0]["id_sala"]
+     
+    try {
+        let url = ""
+        if (email) {
+            url = './actions/action_cadastrar_nao_conformidade_logistica.php?id_realizacao='+id_realizacao+'&id_docente='+id_docente+'&id_sala='+id_sala+'&email=true'
+        } else {
+            url = './actions/action_cadastrar_nao_conformidade_logistica.php?id_realizacao='+id_realizacao+'&id_docente='+id_docente+'&id_sala='+id_sala+'&email=false'
+        }
+
+        let request = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(DOM.get_dataNaoConf())
+        })
+        let response = await request.json()
+        console.log(response)
+    } catch (error) {
+        modalStatusAcaoCorretiva(error, "error", () => {window.location.href = "listar_checklist_concluidas.php"})
+    }
+
+}

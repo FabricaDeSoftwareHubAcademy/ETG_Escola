@@ -1,5 +1,6 @@
 <?php
 session_start();
+$titulo_page = "Listar Checklist Concluídas";
 include_once("../includes/menu.php");
 if(!$ifgencheck){
     header("Location: ../pages/listar_recados.php");
@@ -20,8 +21,20 @@ $list = '';
 foreach($checklist as $row){
     $row['data_abertura'] = date('d/m/Y H:i', strtotime($row['data_abertura']));
     $row['data_fechamento']!=null ? $row['data_fechamento'] = date('d/m/Y H:i', strtotime($row['data_fechamento'])) : $row['data_fechamento']='';
-    $row['conf_logis'] = ($row['conf_logis']=='n') ? '<i class="bi bi-exclamation-octagon"></i>' : '<i class="bi bi-check-square"></i>';
-    $list .= '<a href="validar_checklist.php?id_realizacao='.$row['id_responder'].'" class="card">
+    
+    
+    if($row['conf_logis']=='n'){
+        $link = './validar_checklist.php?id_realizacao='.$row['id_responder'];
+    }
+    elseif($row['conf_logis']=='p'){
+        $link = './acao_corretiva.php?id_realizacao='.$row['id_responder'];
+    }
+    else{
+        $link = '#';
+    }
+    $row['conf_logis'] = ($row['conf_logis']=='n') ? '<i class="bi bi-exclamation-octagon"></i>' : (($row['conf_logis']=='s') ? '<i class="bi bi-check-square"></i>':'<i class="bi bi-exclamation-diamond"></i>');
+
+    $list .= '<a href="'.$link.'" class="card">
                 <div class="card_detalhes">
                     <div class="card_img" style="border: 2px solid'.$row['cor'].'">
                         <img class="img_sala" src="../storage/salas/'.$row['img_sala'].'" alt="foto da sala">

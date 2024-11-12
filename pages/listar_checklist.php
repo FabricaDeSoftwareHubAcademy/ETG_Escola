@@ -4,6 +4,7 @@ use App\Entity\Checklist;
 use App\Entity\Sala;
 
 session_start();
+$titulo_page = "Listar Checklist";
 require __DIR__."/../vendor/autoload.php";
 include_once("../includes/menu.php");
 // $titulo_page = 'Validar checklist';

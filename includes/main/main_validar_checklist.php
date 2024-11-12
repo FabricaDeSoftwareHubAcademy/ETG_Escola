@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 <link rel="stylesheet" href="../assets/css/validar_checklist.css">
 <script type="module" src="../assets/js/validarChecklist/main.js"></script>
-<script src="../assets/js/modais.js"></script>
+<script src="../assets/js/modaisAcaoCorretiva.js"></script>
+
 
 
 <script>
-    modalStatus
     var perguntasJson = <?php echo $perguntasJson;?>;
     var id_sala = <?php echo $id_sala;?>
 </script>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$titulo_page = "Cadastrar Checklist";
 require __DIR__ ."/../vendor/autoload.php";
 $titulo_page = 'Cadastrar Checklist';
 include_once("../includes/menu.php");

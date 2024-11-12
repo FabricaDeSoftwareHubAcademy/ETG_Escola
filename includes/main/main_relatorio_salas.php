@@ -13,7 +13,7 @@
         <section class="teste">
             <div class="testePrimeiraSecao">
                     <div id="user_relatorio" class="user_relatorio">
-                        <!-- <div class="user-report"><i class="bi bi-person-square"></i>Usuários<i class="fa fa-chevron-down"></i></div> -->
+                         
                         <select name="" id="" class="link">
                         <option selected>Salas</option>
                         <?php

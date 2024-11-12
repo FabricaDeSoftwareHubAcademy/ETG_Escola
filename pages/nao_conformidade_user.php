@@ -1,6 +1,6 @@
 <?php
 session_start();
-$titulo_page = 'Imprimir Relatório';
+$titulo_page = "Não conformidade User";
 require __DIR__."/../vendor/autoload.php";
 include_once("../includes/menu.php"); 
 if(!$ifreaac){

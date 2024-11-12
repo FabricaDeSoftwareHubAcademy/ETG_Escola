@@ -55,9 +55,11 @@ button{
     
 }
 .msg_aviso{
+    overflow: hidden;
+    max-height: 300px;
     color: white;
     word-wrap: break-word;
-    height: 300px;
+   
     max-width: 200px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$titulo_page = 'Mural Recados'; 
+$titulo_page = 'Informações Administrativas'; 
 include_once("../includes/menu.php");
 
 use App\Entity\Relatorio;
