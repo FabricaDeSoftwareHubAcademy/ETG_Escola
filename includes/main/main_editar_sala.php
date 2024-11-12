@@ -1,4 +1,4 @@
-<!-- <link rel="stylesheet" href="https/cdnjs.cloudflare.comlibs/font-awesome/6.4.0/css/all.min.css"> -->
+ 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
 <link rel="stylesheet" href="../assets/css/cadastrar_editar_sala.css"> 
 <script src="https://code.jquery.com/jquery-3.7.0.js"integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="crossorigin="anonymous"></script>
@@ -39,7 +39,7 @@
                             <div class="input_group field">
                                 <input value="<?=$dados_sala[0]['nome']?>" type="input" class="input_field toguroo required" placeholder="Name" required="" name="nome" maxLength="32" id='nome_sala'>
                                 <h4 class="span-required">Preenchimento obrigatório</h4>
-                                <label for="name" class="input_label">Nome Da Sala</label> <!--Alterar para o nome do input-->
+                                <label for="name" class="input_label">Nome Da Sala</label>  
                             </div>
 
 
@@ -53,7 +53,7 @@
                             <div class="input_group field ">
                                 <input type="number" value="<?=$dados_sala[0]['codigo']?>" class="input_field toguro required" placeholder="Name" required="" name="codigo" maxLength="4"  id="codigo_sala" style="text-transform:uppercase" />
                                 <h4 class="span-required diferentao">Preenchimento obrigatório</h4>
-                                <label for="name" class="input_label toguro" > Código </label> <!--Alterar para o nome do input-->
+                                <label for="name" class="input_label toguro" > Código </label>  
                             </div>
 
 
@@ -220,15 +220,15 @@
                         const spans = document.querySelectorAll(".span-required");
                         
                         
-                        // console.log(spans);
+                         
 
                         function setError(index){
-                            campos[index].classList.add('error'); // Adiciona a classe 'error' ao elemento
+                            campos[index].classList.add('error');  
                             spans[index].style = 'display: block; width: 100%;';
                         }
 
                         function removeError(index) {
-                            campos[index].classList.remove('error'); // Remove a classe 'error' do elemento
+                            campos[index].classList.remove('error');  
                             spans[index].style.display = 'none';
                         }
 

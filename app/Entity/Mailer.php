@@ -101,7 +101,7 @@ class Mailer
         $email->setFrom("fabrica.hub.academy@gmail.com","=?UTF-8?B?".base64_encode("Fábrica de Software")."?="); 
 
         $email->Body = $this->createEmbedMail('Não Conformidade', $destinatario['nome'], $content, 'Ver Não Conformidade', '#ff5050',$imgs, textNConformidade: $textNConformidade);
-        $email->addAddress($emailparam); 
+        $email->addAddress($emailparam);  
         $email->addAddress('logisticatur@ms.senac.br '); 
         $email->addAddress('simone.demenciano@ms.senac.br');
         $email->isHTML(true);

@@ -146,9 +146,9 @@
       }
     
       /* Define a quebra de página após cada terceiro elemento nao_conformidade */
-      .nao_conformidade:not(:first-child):nth-child(3n) {
-        page-break-after: always;
-      }
+    .nao_conformidade:not(:first-child):nth-child(3n) {
+    page-break-after: always;
+    }
     .url-bar {
         display: none !important;
       }
@@ -175,6 +175,12 @@
         /* overflow-y: scroll; */
         border-radius: 10px;
         padding: 5px;
+    }
+    .botao-padrao-voltar{
+        display: none;
+    }
+    .area_botões{
+        display: none;
     }
     
     

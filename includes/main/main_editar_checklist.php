@@ -19,7 +19,7 @@
 
      <div class="wasd"></div>
      <div class="container-pop-up-notificacao">
-         <!-- <button type="submit" class="btn-pop-up-notificacao" id="submit-btn-notificacao" onclick="openPopupValidar()">Submit</button> -->
+         
          <div class="popup-notificacao" id="popup-up-notificacao">
              <div class="div-img">
                  <img src="../includes/pop-ups/img/Check_ring.png" alt="carregando" id="img_check">
@@ -31,7 +31,7 @@
                          let popup = document.getElementById("popup-up-notificacao");
                          let btn = document.getElementById("submit-btn-notificacao");
 
-                         // btn.style.display = "block";
+                          
 
                          popup.classList.remove("open-popup");
                      }
