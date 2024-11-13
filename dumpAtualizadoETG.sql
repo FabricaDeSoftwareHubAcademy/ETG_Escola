@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `etg2` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `etg2`;
+CREATE DATABASE  IF NOT EXISTS `etg` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `etg`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: etg2
@@ -599,7 +599,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`fabrica`@`%`*/ /*!50003 TRIGGER `reg_check_AFTER_INSERT` AFTER INSERT ON `responder_check` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50003 TRIGGER `reg_check_AFTER_INSERT` AFTER INSERT ON `responder_check` FOR EACH ROW BEGIN
 	insert into check_aberta values(default,new.id);
     update cadastro_sala set `status` = 'a' where cadastro_sala.id = new.id_sala;
 END */;;
@@ -664,7 +664,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`fabrica`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `check_concluidas` AS select `responder_check`.`id` AS `id_responder`,`responder_check`.`data_abertura` AS `data_abertura`,`responder_check`.`data_fechamento` AS `data_fechamento`,`responder_check`.`conf_logis` AS `conf_logis`,`cadastro_usuario`.`nome` AS `nome`,`cadastro_sala`.`nome` AS `nome_sala`,`cadastro_sala`.`img_sala` AS `img_sala`,`cadastro_sala`.`cor_itens` AS `cor`,`cadastro_sala`.`codigo` AS `codigo`,`cadastro_usuario`.`nome` AS `nome_docente` from ((`responder_check` join `cadastro_sala` on(`responder_check`.`id_sala` = `cadastro_sala`.`id`)) join `cadastro_usuario` on(`responder_check`.`id_usuario` = `cadastro_usuario`.`id`)) order by `responder_check`.`conf_logis` desc,`responder_check`.`data_fechamento` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -682,7 +681,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`fabrica`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `checklist_respondidas` AS select distinct `cadastro_usuario`.`id` AS `id_user`,`cadastro_usuario`.`nome` AS `nome_user`,`cadastro_checklist`.`id` AS `id_check`,`cadastro_checklist`.`nome` AS `nome_check` from ((`cadastro_usuario` join `responder_check` on(`responder_check`.`id_usuario` = `cadastro_usuario`.`id`)) join `cadastro_checklist` on(`cadastro_checklist`.`id` = `responder_check`.`id_checklist`)) where `responder_check`.`data_fechamento` is not null */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -700,7 +698,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`fabrica`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `nc_user_logistica` AS select `responder_check`.`id` AS `id_responder_check`,`reg_nc`.`id_user` AS `id_user`,`cad_user3`.`nome` AS `nome_logistica`,`cad_user1`.`id` AS `id_responsavel`,`cad_user1`.`nome` AS `nome_docente`,`cad_perg`.`id` AS `id_pergunta`,`reg_nc`.`img1` AS `img1`,`reg_nc`.`img2` AS `img2`,`reg_nc`.`img3` AS `img3`,`reg_nc`.`descricao_NC` AS `desc_nc`,`cad_perg`.`descricao` AS `desc_pergunta`,`responder_check`.`data_abertura` AS `data_abertura`,`responder_check`.`data_fechamento` AS `data_fechamento` from ((((((`responder_check` join `reg_nc` on(`reg_nc`.`id_realiza` = `responder_check`.`id`)) join `reg_correcao` on(`reg_correcao`.`reg_NC_id` = `reg_nc`.`id`)) join `cadastro_usuario` `cad_user1` on(`cad_user1`.`id` = `responder_check`.`id_usuario`)) join `cadastro_usuario` `cad_user2` on(`cad_user2`.`id` = `reg_correcao`.`id_usuario`)) join `cadastro_pergunta` `cad_perg` on(`cad_perg`.`id` = `reg_nc`.`id_pergu`)) join `cadastro_usuario` `cad_user3` on(`cad_user3`.`id` = `reg_nc`.`id_user`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -718,7 +715,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`fabrica`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `perfil_do_user` AS select `cadastro_usuario`.`id` AS `id_user`,`cadastro_perfil`.`gerenciar_usuarios` AS `gerenciar_usuarios`,`cadastro_perfil`.`realizar_acao_corretiva` AS `realizar_acao_corretiva`,`cadastro_perfil`.`realizar_checklist` AS `realizar_checklist`,`cadastro_perfil`.`gerenciar_salas` AS `gerenciar_salas`,`cadastro_perfil`.`gerenciar_checklist` AS `gerenciar_checklist`,`cadastro_perfil`.`gerenciar_recados` AS `gerenciar_recados`,`cadastro_perfil`.`gerenciar_notificacoes` AS `gerenciar_notificacoes`,`cadastro_perfil`.`gerenciar_perfis` AS `gerenciar_perfis`,`cadastro_perfil`.`gerenciar_perguntas` AS `gerenciar_perguntas`,`cadastro_perfil`.`ver_relatorios` AS `relatorios` from (`cadastro_usuario` join `cadastro_perfil` on(`cadastro_perfil`.`id` = `cadastro_usuario`.`id_perfil`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -736,7 +732,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`fabrica`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `perguntas_da_sala` AS select `cadastro_sala`.`id` AS `id_sala`,`cadastro_pergunta`.`id` AS `id_pergunta`,`cadastro_pergunta`.`descricao` AS `pergunta`,`cadastro_pergunta`.`tipo` AS `tipo`,`cadastro_checklist`.`nome` AS `nome_check`,`cadastro_sala`.`nome` AS `nome_sala` from (((`cadastro_pergunta` join `relacao_pergunta_checklist` on(`cadastro_pergunta`.`id` = `relacao_pergunta_checklist`.`id_pergunta`)) join `cadastro_checklist` on(`relacao_pergunta_checklist`.`id_check` = `cadastro_checklist`.`id`)) join `cadastro_sala` on(`cadastro_checklist`.`id` = `cadastro_sala`.`id_check`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -754,7 +749,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`fabrica`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `quantidade_nc_user` AS select `responder_check`.`id` AS `id`,`responder_check`.`id_usuario` AS `id_user`,`cadastro_usuario`.`nome` AS `nome`,`responder_check`.`id_sala` AS `id_sala`,`cadastro_sala`.`nome` AS `nome_sala`,`responder_check`.`data_abertura` AS `data_abertura`,`responder_check`.`data_fechamento` AS `data_fechamento`,`responder_check`.`id_checklist` AS `id_checklist`,`cadastro_checklist`.`nome` AS `nome_check`,count(`reg_nc`.`id`) AS `qnt_nc`,count(`reg_correcao`.`id`) AS `qnt_c` from (((((`responder_check` join `cadastro_sala` on(`responder_check`.`id_sala` = `cadastro_sala`.`id`)) join `cadastro_checklist` on(`cadastro_checklist`.`id` = `responder_check`.`id_checklist`)) join `cadastro_usuario` on(`cadastro_usuario`.`id` = `responder_check`.`id_usuario`)) left join `reg_nc` on(`reg_nc`.`id_realiza` = `responder_check`.`id`)) left join `reg_correcao` on(`reg_correcao`.`reg_NC_id` = `reg_nc`.`id`)) where `responder_check`.`data_fechamento` is not null group by `responder_check`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -772,7 +766,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`fabrica`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `quem_abriu` AS select `cadastro_sala`.`id` AS `id`,`cadastro_sala`.`nome` AS `nome`,`cadastro_sala`.`codigo` AS `codigo`,`cadastro_sala`.`cor_itens` AS `cor_itens`,`cadastro_sala`.`img_sala` AS `img_sala`,`cadastro_sala`.`descricao` AS `descricao`,`cadastro_sala`.`status` AS `status`,`cadastro_sala`.`horarios` AS `horarios`,`cadastro_sala`.`id_check` AS `id_check`,`responder_check`.`id_usuario` AS `responsavel` from (`cadastro_sala` left join `responder_check` on(`cadastro_sala`.`id` = `responder_check`.`id_sala` and `responder_check`.`data_fechamento` is null)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -790,7 +783,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`fabrica`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `relatorio` AS select `reg_nc`.`id` AS `id_nc`,`user_nc`.`nome` AS `nome_reg_nc`,`reg_nc`.`id_pergu` AS `id_pergunta`,`responder_check`.`id` AS `id_aula`,`responder_check`.`data_abertura` AS `data_abertura`,`responder_check`.`data_fechamento` AS `data_fechamento`,`cadastro_usuario`.`nome` AS `nome_responsavel`,`cadastro_sala`.`nome` AS `nome_sala`,`cadastro_sala`.`img_sala` AS `img_sala`,`cadastro_sala`.`status` AS `status` from (((`responder_check` left join (`reg_nc` join `cadastro_usuario` `user_nc` on(`reg_nc`.`id_user` = `user_nc`.`id`)) on(`responder_check`.`id` = `reg_nc`.`id_realiza`)) join `cadastro_usuario` on(`responder_check`.`id_usuario` = `cadastro_usuario`.`id`)) join `cadastro_sala` on(`cadastro_sala`.`id` = `responder_check`.`id_sala`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -808,7 +800,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`fabrica`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `salas_encerradas_docente` AS select `cadastro_usuario`.`id` AS `id_user`,`cadastro_usuario`.`nome` AS `nome`,`responder_check`.`id` AS `id_aula`,`responder_check`.`id_checklist` AS `id_checklist`,`responder_check`.`data_abertura` AS `data_abertura`,`responder_check`.`data_fechamento` AS `data_fechamento`,`cadastro_sala`.`nome` AS `nome_sala`,`cadastro_sala`.`img_sala` AS `img_sala`,`responder_check`.`conf_logis` AS `conf_logis`,count(`reg_nc`.`id`) AS `qnt_nc` from (((`cadastro_usuario` join `responder_check` on(`responder_check`.`id_usuario` = `cadastro_usuario`.`id`)) left join `reg_nc` on(`reg_nc`.`id_realiza` = `responder_check`.`id`)) join `cadastro_sala` on(`responder_check`.`id_sala` = `cadastro_sala`.`id`)) where `responder_check`.`data_fechamento` is not null group by `responder_check`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -826,7 +817,6 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_results     = utf8mb4 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`fabrica`@`%` SQL SECURITY DEFINER */
 /*!50001 VIEW `user_relatorio` AS select `cadastro_usuario`.`id` AS `id`,`cadastro_usuario`.`nome` AS `nome`,count(`responder_check`.`id_usuario`) AS `quantidade` from (`cadastro_usuario` join `responder_check` on(`cadastro_usuario`.`id` = `responder_check`.`id_usuario`)) where `responder_check`.`data_fechamento` is not null group by `cadastro_usuario`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;

@@ -23,7 +23,7 @@ foreach ($dados as $row_check ){
             $novo_nome_imagem = $objImagem::storeImgAction($_FILES['img_sala']['name']);
         } else {
             // O arquivo está vazio, atribua um nome padrão
-            $novo_nome_imagem = "gifpadrao.gif"; // Substitua "nome_default.jpg" pelo nome desejado
+            $novo_nome_imagem = "imagempadrao.jpg"; // Substitua "nome_default.jpg" pelo nome desejado
         }
         
     
